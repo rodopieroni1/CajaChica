@@ -19,7 +19,7 @@ public class Controlador {
     JdbcTemplate jdbcTemplate = new JdbcTemplate(con.Conectar());
     ModelAndView mav = new ModelAndView();
 
-    @RequestMapping("index.jsp")
+    @RequestMapping("index.htm")
     public ModelAndView Listar() {
         String sql = "select * from caja";
         List datos = this.jdbcTemplate.queryForList(sql);
@@ -27,4 +27,5 @@ public class Controlador {
         mav.setViewName("index");
         return mav;
     }
+
 }

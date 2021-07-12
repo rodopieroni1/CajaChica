@@ -18,13 +18,14 @@
             </props>
         </property>
     </bean>
-    
-    <bean name="controlador" class="org.springframework.web.servlet.mvc.ParameterizableViewController"/>
-    
+        
     <bean id="viewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver"
           p:prefix="/WEB-INF/jsp/"
           p:suffix=".jsp" />
+
+    
+    <bean name="controlador" class="Controller.Controlador"/>
 
     
 </beans>
