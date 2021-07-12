@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controller;
 
 import Config.Conexion;
@@ -14,20 +9,19 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class Controlador {
+
     Conexion con = new Conexion();
     JdbcTemplate jdbcTemplate = new JdbcTemplate(con.Conectar());
     ModelAndView mav = new ModelAndView();
-    
-    @RequestMapping("index.htm")
-    public ModelAndView Listar(){
-    String sql= "select * from caja";
-    List datos = this.jdbcTemplate.queryForList(sql);
-    
-    mav.addObject("lista", datos);
-    mav.setViewName("index");
-    
-    return mav;
+
+    @RequestMapping("index")
+    public ModelAndView Listar() {
+        String sql = "select * from caja";
+        List datos = this.jdbcTemplate.queryForList(sql);
+        mav.setViewName("index");
+        mav.addObject("lista", datos);
+
+        return mav;
     }
-    
-    
+
 }
