@@ -14,18 +14,20 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class Controlador {
-
     Conexion con = new Conexion();
     JdbcTemplate jdbcTemplate = new JdbcTemplate(con.Conectar());
     ModelAndView mav = new ModelAndView();
-
+    
     @RequestMapping("index.htm")
-    public ModelAndView Listar() {
-        String sql = "select * from caja";
-        List datos = this.jdbcTemplate.queryForList(sql);
-        mav.addObject("lista", datos);
-        mav.setViewName("index");
-        return mav;
+    public ModelAndView Listar(){
+    String sql= "select * from caja";
+    List datos = this.jdbcTemplate.queryForList(sql);
+    
+    mav.addObject("lista", datos);
+    mav.setViewName("index");
+    
+    return mav;
     }
-
+    
+    
 }
